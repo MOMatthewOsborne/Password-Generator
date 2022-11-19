@@ -87,6 +87,10 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+// var charOptions = [lowercaseCon, uppercaseCon, numericCon, specialCon];
+var arrOptions = [lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters]
+var passOptions = [];
+
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -96,12 +100,31 @@ function getPasswordOptions() {
     var uppercaseCon = confirm("Do you want to use Uppercase Characters? ")
     var numericCon = confirm("Do you want to use Numeric Characters? ")
     var specialCon = confirm("Do you want to use Special Characters? ")
+    // for (i = 0; i < charOptions.length; i++) {
+    //   if (charOptions[i]) {
+    //     passOptions = passOptions.map.arrOptions[i];
+    //     alert(passOptions)
+    if (lowercaseCon) {
+      passOptions = passOptions.concat(lowerCasedCharacters)
+    }
+    if (uppercaseCon) {
+      passOptions = passOptions.concat(upperCasedCharacters)
+    }
+    if (numericCon) {
+      passOptions = passOptions.concat(numericCharacters)
+    }
+    if (specialCon) {
+      passOptions = passOptions.concat(specialCharacters)
+    }
+
+    alert(passOptions)
 
 
   } else {
     getPasswordOptions();
   }
 }
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -128,4 +151,4 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-getPasswordOptions();
+getPasswordOptions()
