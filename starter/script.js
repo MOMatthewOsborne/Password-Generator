@@ -137,7 +137,7 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  randomChar = arr[Math.floor(Math.random() * passwordLength)];
+  randomChar = arr[Math.floor(Math.random() * passOptions.length)];
   return
 }
 
