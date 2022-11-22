@@ -90,11 +90,14 @@ var upperCasedCharacters = [
 // var charOptions = [lowercaseCon, uppercaseCon, numericCon, specialCon];
 var arrOptions = [lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters]
 var passOptions = [];
+var returnedPw = [];
+var passwordLength = 0;
 
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var passwordLength = prompt("Please enter your desired password length. Between 10 and 64")
+  passwordLength = prompt("Please enter your desired password length. Between 10 and 64")
+  // alert(passwordLength)
   if (passwordLength >= 10 & passwordLength <= 64) {
     var lowercaseCon = confirm("Do you want to use Lowercase Characters? ")
     var uppercaseCon = confirm("Do you want to use Uppercase Characters? ")
@@ -117,23 +120,37 @@ function getPasswordOptions() {
       passOptions = passOptions.concat(specialCharacters)
     }
 
-    alert(passOptions)
+    // alert(passOptions)
+    if (passOptions.length < 1) {
+      getPasswordOptions()
+    }
 
 
   } else {
     getPasswordOptions();
   }
+
+
+
 }
 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  randomChar = arr[Math.floor(Math.random() * passwordLength)];
+  return
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  for (i = 0; i < passwordLength; i++) {
+    getRandom(passOptions)
+    returnedPw.push(randomChar);
 
+    // alert(returnedPw)
+
+  }
+  return returnedPw.join("");
 
 }
 
@@ -152,3 +169,11 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 getPasswordOptions()
+// alert(passwordLength)
+// alert(passOptions)
+getRandom(passOptions)
+// generatePassword()
+// alert(passwordLength)
+// alert(returnedPw.join(""))
+// alert(password)
+// writePassword()
