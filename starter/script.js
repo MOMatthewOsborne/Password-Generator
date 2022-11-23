@@ -89,13 +89,15 @@ var upperCasedCharacters = [
 ];
 // var charOptions = [lowercaseCon, uppercaseCon, numericCon, specialCon];
 var arrOptions = [lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters]
+
 var passOptions = [];
 var returnedPw = [];
 var passwordLength = 0;
-
-
 // Function to prompt user for password options
 function getPasswordOptions() {
+  passOptions = [];
+  returnedPw = [];
+  passwordLength = 0;
   passwordLength = prompt("Please enter your desired password length. Between 10 and 64")
   // alert(passwordLength)
   if (passwordLength >= 10 & passwordLength <= 64) {
@@ -103,10 +105,6 @@ function getPasswordOptions() {
     var uppercaseCon = confirm("Do you want to use Uppercase Characters? ")
     var numericCon = confirm("Do you want to use Numeric Characters? ")
     var specialCon = confirm("Do you want to use Special Characters? ")
-    // for (i = 0; i < charOptions.length; i++) {
-    //   if (charOptions[i]) {
-    //     passOptions = passOptions.map.arrOptions[i];
-    //     alert(passOptions)
     if (lowercaseCon) {
       passOptions = passOptions.concat(lowerCasedCharacters)
     }
@@ -120,11 +118,9 @@ function getPasswordOptions() {
       passOptions = passOptions.concat(specialCharacters)
     }
 
-    // alert(passOptions)
     if (passOptions.length < 1) {
       getPasswordOptions()
     }
-
 
   } else {
     getPasswordOptions();
@@ -159,29 +155,17 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  getPasswordOptions()
+  getRandom(passOptions)
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
 }
 
-var textArea = document.getElementById('password');
-
-// Function that clears text box
-function clearBox() {
-
-}
-
 // Add event listener to generate button
 // generateBtn.addEventListener('click', clearBox);
 generateBtn.addEventListener('click', writePassword);
 
-getPasswordOptions()
-// alert(passwordLength)
-// alert(passOptions)
-getRandom(passOptions)
-// generatePassword()
-// alert(passwordLength)
-// alert(returnedPw.join(""))
-// alert(password)
-// writePassword()
+
+
