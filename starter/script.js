@@ -87,7 +87,6 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-// var charOptions = [lowercaseCon, uppercaseCon, numericCon, specialCon];
 var arrOptions = [lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters]
 
 var passOptions = [];
@@ -99,7 +98,6 @@ function getPasswordOptions() {
   returnedPw = [];
   passwordLength = 0;
   passwordLength = prompt("Please enter your desired password length. Between 10 and 64 characters")
-  // alert(passwordLength)
   if (passwordLength >= 10 & passwordLength <= 64) {
     var lowercaseCon = confirm("Do you want to use Lowercase Characters? ")
     var uppercaseCon = confirm("Do you want to use Uppercase Characters? ")
@@ -139,9 +137,6 @@ function generatePassword() {
   for (i = 0; i < passwordLength; i++) {
     getRandom(passOptions)
     returnedPw.push(randomChar);
-
-    // alert(returnedPw)
-
   }
   return returnedPw.join("");
 
