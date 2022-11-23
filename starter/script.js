@@ -165,7 +165,15 @@ function writePassword() {
   passwordText.value = password;
 }
 
+var textArea = document.getElementById('password');
+
+// Function that clears text box
+function clearBox() {
+
+}
+
 // Add event listener to generate button
+// generateBtn.addEventListener('click', clearBox);
 generateBtn.addEventListener('click', writePassword);
 
 getPasswordOptions()
